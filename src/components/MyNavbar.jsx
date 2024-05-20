@@ -14,13 +14,14 @@ const MyNavbar = ({ role }) => {
   return (
     <nav className="navbar">
       <div className="container">
-      
+
         <ul className="nav justify-content-end">
+          <div className="navbar-brand" style={{ cursor: 'pointer' }}>
+            <img src={ticketImage} alt="Inicio" className="navbar-logo" />
+          </div>
           {(role === "user") && (
             <>
-              <div className="navbar-brand" style={{ cursor: 'pointer' }}>
-          <img src={ticketImage} alt="Inicio" className="navbar-logo" />
-        </div>
+
               <li className="nav-item">
                 <a className="nav-link" href="/View">View Ticket</a>
               </li>

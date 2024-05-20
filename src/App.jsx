@@ -4,10 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from './components/MyNavbar';
 
+const userRole = "user"; 
 
 const App = () => (
   <BrowserRouter>
-    <MyNavbar />
+    <MyNavbar role={userRole} />
   </BrowserRouter>
 );
 ReactDOM.createRoot(document.getElementById("app")).render(<App />);

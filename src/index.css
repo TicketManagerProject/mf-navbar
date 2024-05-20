@@ -35,7 +35,17 @@
   pointer-events: none;
 }
 
-.container{
+.container {
   align-items: end;
   margin-left: 25%;
+}
+
+.navbar-logo {
+  height: 40px;
+
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
 }

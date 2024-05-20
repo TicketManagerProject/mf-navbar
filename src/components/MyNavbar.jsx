@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ticketImage from './ticket.png';
 import "../index.css";
 
 const MyNavbar = ({ role }) => {
@@ -13,9 +14,13 @@ const MyNavbar = ({ role }) => {
   return (
     <nav className="navbar">
       <div className="container">
+      
         <ul className="nav justify-content-end">
           {(role === "user") && (
             <>
+              <div className="navbar-brand" style={{ cursor: 'pointer' }}>
+          <img src={ticketImage} alt="Inicio" className="navbar-logo" />
+        </div>
               <li className="nav-item">
                 <a className="nav-link" href="/View">View Ticket</a>
               </li>
@@ -33,7 +38,7 @@ const MyNavbar = ({ role }) => {
                 <a className="nav-link" href="/Cancel">Cancel Ticket</a>
               </li>
               <li className="nav-item">
-              <a className="nav-link" onClick={handleLogout}>Cerrar Sesión</a>
+                <a className="nav-link" onClick={handleLogout}>Cerrar Sesión</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Name Lastname</a>

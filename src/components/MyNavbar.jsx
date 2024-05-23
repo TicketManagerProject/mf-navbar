@@ -1,9 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ticketImage from './ticket.png';
 import "../index.css";
 
 const MyNavbar = ({ role }) => {
+  const location = useLocation();
+  const baseUrl = location.pathname.includes('/admin') ? '/admin/dashboard' : '/user/dashboard';
 
   const handleLogout = () => {
     // Lógica para cerrar sesión, como limpiar el token de autenticación, etc.
@@ -14,35 +16,33 @@ const MyNavbar = ({ role }) => {
   return (
     <nav className="navbar">
       <div className="container">
-
         <ul className="nav justify-content-end">
           <div className="navbar-brand" style={{ cursor: 'pointer' }}>
             <img src={ticketImage} alt="Inicio" className="navbar-logo" />
           </div>
           {(role === "user") && (
             <>
-
               <li className="nav-item">
-                <a className="nav-link" href="/View">View Ticket</a>
+                <a className="nav-link" href={`${baseUrl}/view`}>View Ticket</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/Notifications">Notifications</a>
+                <a className="nav-link" href={`${baseUrl}/notifications`}>Notifications</a>
               </li>
             </>
           )}
           {(role === "admin" || role === "user") && (
             <>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/Create">Create Ticket</a>
+                <a className="nav-link active" aria-current="page" href={`${baseUrl}/create`}>Create Ticket</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/Cancel">Cancel Ticket</a>
+                <a className="nav-link" href={`${baseUrl}/cancel`}>Cancel Ticket</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" onClick={handleLogout}>Cerrar Sesión</a>
+                <a className="nav-link" onClick={handleLogout} style={{ cursor: 'pointer' }}>Cerrar Sesión</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Name Lastname</a>
+                <span className="nav-link disabled" tabIndex="-1" aria-disabled="true">Name Lastname</span>
               </li>
             </>
           )}
@@ -51,6 +51,5 @@ const MyNavbar = ({ role }) => {
     </nav>
   );
 };
-
 
 export default MyNavbar;

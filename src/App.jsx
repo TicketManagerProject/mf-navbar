@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from './components/MyNavbar';
 
-const userRole = "user"; 
+const userRole = "admin"; 
 
 const App = () => (
   <BrowserRouter>

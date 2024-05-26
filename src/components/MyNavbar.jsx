@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ticketImage from './ticket.png';
 import "../index.css";
 
@@ -13,11 +13,16 @@ const MyNavbar = ({ role }) => {
     window.location.href = "/";
   };
 
+  const handleLogoClick = () => {
+    const dashboardUrl = role === 'admin' ? '/admin/dashboard' : '/user/dashboard';
+    window.location.href = dashboardUrl;
+  };
+
   return (
     <nav className="navbar">
       <div className="container">
         <ul className="nav justify-content-end">
-          <div className="navbar-brand" style={{ cursor: 'pointer' }}>
+          <div className="navbar-brand" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
             <img src={ticketImage} alt="Inicio" className="navbar-logo" />
           </div>
           {(role === "user") && (
